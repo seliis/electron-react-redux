@@ -1,0 +1,56 @@
+{
+    "name": "electron",
+    "version": "0.1.0",
+    "description": "nil",
+    "main": "public/electron.js",
+    "homepage": "./",
+    "author": "yourName",
+    "license": "MIT",
+    "scripts": {
+        "react": "set BROWSER=none && react-scripts start",
+        "electron": "set ELECTRON_START_URL=http://localhost:3000 && electron .",
+        "build": "react-scripts build && electron-builder"
+    },
+    "build": {
+        "appId": "com.companyName.appName",
+        "productName": "appName",
+        "compression": "maximum",
+        "asar": true,
+        "files": [
+            "build/**/*",
+            "!build/database_test.db"
+        ],
+        "extraResources": {
+            "from": "./src/database/database.db",
+            "to": "./database.db"
+        },
+        "win": {
+            "target": "portable"
+        }
+    },
+    "devDependencies": {
+        "@reduxjs/toolkit": "^1.6.2",
+        "electron": "^16.0.2",
+        "electron-builder": "^22.14.5",
+        "node-sass": "^6.0.1",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "react-redux": "^7.2.6",
+        "react-router-dom": "^6.0.2",
+        "react-scripts": "4.0.3",
+        "redux-persist": "^6.0.0"
+    },
+    "dependencies": {
+        "sqlite3": "^5.0.2"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version"
+        ]
+    }
+}
